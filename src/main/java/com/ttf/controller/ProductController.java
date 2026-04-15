@@ -32,7 +32,7 @@ public class ProductController {
         log.info(
                 result
                         ? "l'oggetto è stato aggiunto con successo"
-                        : "l'oggetto non è stato aggiunto");
+                        : "l'oggetto non è stato aggiunto x");
         return "redirect:/products";
     }
 }
