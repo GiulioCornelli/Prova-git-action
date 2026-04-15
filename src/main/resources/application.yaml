@@ -1,0 +1,19 @@
+spring.application.name: tutorialjpa
+
+server:
+  port: 8090
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/provajpa
+    username: root
+    password: pippo123
+
+  # jpa:
+  #   # Mostra le query SQL nella console (utilissimo in fase di sviluppo!)
+  #   show-sql: true
+  #   # Formatta l'SQL in console per renderlo leggibile
+  #   properties:
+  #     hibernate:
+  #       format_sql: true 

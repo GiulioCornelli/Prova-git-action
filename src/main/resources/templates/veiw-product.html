@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestione Prodotti</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+
+    <h1>I Nostri Prodotti</h1>
+
+    <!-- TABELLA PRODOTTI -->
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Descrizione</th>
+                <th>Prezzo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Ciclo for-each di Thymeleaf -->
+            <tr th:each="p : ${listaProdotti}">
+                <td th:text="${p.productid}"></td>
+                <td th:text="${p.name}"></td>
+                <td th:text="${p.description}"></td>
+                <td th:text="|${p.price} €|"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <!-- FORM AGGIUNTA PRODOTTO -->
+    <h3>Aggiungi un nuovo prodotto</h3>
+    <form th:action="@{/products/add}" th:object="${nuovoProdotto}" method="post" class="row g-3">
+        <div class="col-md-4">
+            <input type="text" th:field="*{name}" class="form-control" placeholder="Nome" required>
+        </div>
+        <div class="col-md-4">
+            <input type="text" th:field="*{description}" class="form-control" placeholder="Descrizione">
+        </div>
+        <div class="col-md-2">
+            <input type="number" step="0.01" th:field="*{price}" class="form-control" placeholder="Prezzo" required>
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary w-100">Salva</button>
+        </div>
+    </form>
+
+</body>
+</html>
