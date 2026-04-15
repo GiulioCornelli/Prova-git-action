@@ -29,7 +29,10 @@ public class ProductController {
     @PostMapping("/add")
     public String postMethodName(@ModelAttribute("nuovoProdotto") Product p) {
         boolean result = productService.InsertOne(p);
-        log.info(result ? "l'oggetto è stato aggiunto" : "l'oggetto non è stato aggiunto");
+        log.info(
+                result
+                        ? "l'oggetto è stato aggiunto con successo"
+                        : "l'oggetto non è stato aggiunto");
         return "redirect:/products";
     }
 }
